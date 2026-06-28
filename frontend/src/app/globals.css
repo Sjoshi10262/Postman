@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+body {
+  @apply bg-pm-bg text-pm-text;
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* Thin, Postman-style scrollbars */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #b8b8b8;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Reusable bits */
+.kv-input {
+  @apply w-full bg-transparent px-2 py-1.5 text-[13px] outline-none placeholder:text-pm-faint focus:bg-white;
+}
+
+.tab-underline {
+  @apply relative text-[13px] text-pm-muted hover:text-pm-text;
+}
+.tab-underline.active {
+  @apply text-pm-text;
+}
+.tab-underline.active::after {
+  content: "";
+  @apply absolute -bottom-[7px] left-0 right-0 h-[2px] bg-pm-orange;
+}
+
+.resizer {
+  @apply shrink-0 cursor-col-resize bg-transparent transition-colors hover:bg-pm-orange/40;
+}
+.resizer-h {
+  @apply cursor-row-resize hover:bg-pm-orange/40;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
